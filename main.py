@@ -1,9 +1,8 @@
 from pynput.keyboard import Key, Listener, Controller
-import win32clipboard, time
+import win32clipboard, time, TTModules
 
 keyboard = Controller()
-COMBINAISONS = [[{Key.ctrl_l, Key.f1}, upper],
-                [{Key.ctrl_l, Key.f2}, lower]]
+COMBINAISONS = [[{Key.ctrl_l, Key.f1}, TTModules.swapcase]]
 activation = False
 
 currentPressed = set()      #represents the key that are in Combinaison AND that are pressed
@@ -29,7 +28,6 @@ def GetClipboardData():
 
 def TransformText(data, transform):
     global COMBINAISONS
-
     return COMBINAISONS[transform][1](data)
 
 def UpdateClipboard(transform):
@@ -48,9 +46,7 @@ def on_press(key):
         for i in range(0,len(COMBINAISONS)):
             if all(k in currentPressed for k in COMBINAISONS[i][0]):
                 activation = True       #if every key is pressed, we launch the action on release
-                print(COMBINAISONS[0][0], i)
                 transform = i
-                print(transform)
 
     if key == Key.esc:
         print("You ve stopped the listener")
