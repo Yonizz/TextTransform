@@ -2,7 +2,8 @@ from pynput.keyboard import Key, Listener, Controller
 import win32clipboard, time
 
 keyboard = Controller()
-COMBINAISON = {Key.ctrl_l, Key.f1}
+COMBINAISONS = [[{Key.ctrl_l, Key.f1}, upper],
+                [{Key.ctrl_l, Key.f2}, lower]]
 activation = False
 
 currentPressed = set()      #represents the key that are in Combinaison AND that are pressed
