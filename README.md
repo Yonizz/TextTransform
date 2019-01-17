@@ -15,7 +15,11 @@ To run and use the program, simply download a copy of the repository with
 
 ### Prerequisites
 
-You will need python 3.x to run the programm
+You will need python 3.x to run the programm.
+In addition you will need a few python packages. You can install them with pip :
+```
+pip install pynput pywin32 winshell
+```
 
 ## Support
 
@@ -38,4 +42,4 @@ See also the list of [contributors](https://github.com/Feeez/TextTransform/graph
 
 ## License
 
-This project is licensed under the LGPL v3.0 License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the LGPL v3.0 License - see the [LICENSE](LICENSE) file for details.
