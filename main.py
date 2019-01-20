@@ -1,5 +1,5 @@
 from pynput.keyboard import Key, Listener, Controller
-import win32clipboard, time, TTModules
+import win32clipboard, time, TTModules  #import of clipboard of the pc, the time and TTModules
 
 keyboard = Controller()
 COMBINAISONS = [[{Key.ctrl_l, Key.f1}, TTModules.swapcase]]
@@ -14,10 +14,10 @@ def kCopyText(keyboard):
     keyboard.release(Key.ctrl_l)
 
 def kPasteText(keyboard):
-    keyboard.press(Key.ctrl_l)
-    keyboard.press('v')
-    keyboard.release('v')
-    keyboard.release(Key.ctrl_l)
+    keyboard.press(Key.ctrl_l)   #push the key control on the left
+    keyboard.press('v')          #push the key v
+    keyboard.release('v')        #realease the key v
+    keyboard.release(Key.ctrl_l) #realease the key control on the left
 
 def GetClipboardData():
     win32clipboard.OpenClipboard()
